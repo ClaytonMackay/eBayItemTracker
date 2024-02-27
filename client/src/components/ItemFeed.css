@@ -1,0 +1,16 @@
+/* ItemFeed.css */
+.feed {
+	flex-grow: 1; /* Take up remaining space */
+	overflow-y: auto; /* Scrollbar if content is too long */
+}
+
+.ebay-feed-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* adjust 250px as needed */
+    gap: 5px; /* space between grid items */
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* enable vertical scrolling */
+    height: 100vh; /* adjust height as needed, or make it dynamic */
+  }

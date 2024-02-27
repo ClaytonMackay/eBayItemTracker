@@ -1,0 +1,31 @@
+{
+  "name": "ebay-tool-electron-app",
+  "version": "1.0.0",
+  "description": "Tools to improve eBay use.",
+  "main": "main.js",
+  "scripts": {
+    "start": "concurrently \"cd client && npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": "Clayton Mackay",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.3.0",
+    "@electron-forge/maker-deb": "^7.3.0",
+    "@electron-forge/maker-rpm": "^7.3.0",
+    "@electron-forge/maker-squirrel": "^7.3.0",
+    "@electron-forge/maker-zip": "^7.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
+    "concurrently": "^8.2.2",
+    "electron": "^29.0.1",
+    "electron-is-dev": "^3.0.1",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "sqlite3": "^5.1.7"
+  }
+}

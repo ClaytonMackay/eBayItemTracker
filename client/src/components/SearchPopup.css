@@ -1,0 +1,11 @@
+.dialog-content { /* Target the DialogContent container if needed */
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  }
+  
+.dialog-content .MuiGrid-item {  /* Target the Grid items */
+    width: 400px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  } 
