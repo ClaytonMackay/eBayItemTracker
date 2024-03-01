@@ -1,11 +1,29 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
+import {
+	Card,
+	CardMedia,
+	CardContent,
+	Typography,
+	Link,
+	Button,
+} from "@mui/material";
 
-const ItemCard = ({ itemData }) => {
+const ItemCard = ({ item, setEbayItemsSeen }) => {
+	const handleSeenChange = () => {
+		setEbayItemsSeen([item]);
+	};
+
 	return (
-		<Card sx={{ maxWidth: 240, margin: 4 }}>
+		<Card
+			sx={{
+				maxWidth: 240,
+				margin: 4,
+				position: "relative",
+				opacity: Boolean(item.seen) ? 0.3 : 1,
+			}}
+		>
 			<Link
-				href={itemData.itemUrl}
+				href={item.itemData.itemWebUrl}
 				target="_blank"
 				rel="noopener noreferrer"
 				underline="hover"
@@ -13,34 +31,46 @@ const ItemCard = ({ itemData }) => {
 				<CardMedia
 					component="img"
 					image={
-						itemData.image?.imageUrl ||
-						itemData.thumbnailImages?.[0]?.imageUrl
+						item.itemData.image?.imageUrl ||
+						item.itemData.thumbnailImages?.[0]?.imageUrl
 					}
-					alt={itemData.title}
+					alt={item.itemData.title}
 				/>
 			</Link>
 			<CardContent>
 				<Link
-					href={itemData.itemUrl}
+					href={item.itemData.itemWebUrl}
 					target="_blank"
 					rel="noopener noreferrer"
 					underline="hover"
 				>
 					<Typography gutterBottom variant="body3" component="div">
-						{itemData.title}
+						{item.itemData.title}
 					</Typography>
 				</Link>
 				<Typography variant="body2">
-					Price: ${itemData.price.value} {itemData.price.currency}{" "}
-					<br />
-					Condition: {itemData.condition}
+					Price: ${item.itemData.price.value}{" "}
+					{item.itemData.price.currency} <br />
+					Condition: {item.itemData.condition}
 				</Typography>
-				{itemData.shippingInfo && (
+				{item.itemData.shippingInfo && (
 					<Typography variant="body2">
-						Shipping: {itemData.shippingInfo}
+						Shipping: {item.itemData.shippingInfo}
 					</Typography>
 				)}
 			</CardContent>
+			<Button
+				onClick={handleSeenChange}
+				style={{
+					bottom: 10,
+					left: "50%",
+					transform: "translateX(-50%)",
+					backgroundColor: Boolean(item.seen) ? "red" : "green",
+					color: Boolean(item.seen) ? "white" : "white",
+				}}
+			>
+				{Boolean(item.seen) ? "Seen" : "Unseen"}
+			</Button>
 		</Card>
 	);
 };

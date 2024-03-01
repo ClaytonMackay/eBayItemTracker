@@ -6,7 +6,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 
-const ConfirmationDialog = ({ open, onClose, onConfirm, message }) => {
+const ConfirmationDialog = ({ open, onClose, onConfirm, message, subject }) => {
     return (
         <Dialog open={open} onClose={onClose}>
             <DialogTitle>Confirm Action</DialogTitle>
@@ -15,7 +15,7 @@ const ConfirmationDialog = ({ open, onClose, onConfirm, message }) => {
             </DialogContent>
             <DialogActions>
                 <Button onClick={onClose} color="primary">Cancel</Button>
-                <Button onClick={onConfirm} color="primary" autoFocus>Confirm</Button>
+                <Button onClick={() => onConfirm(subject)} color="primary" autoFocus>Confirm</Button>
             </DialogActions>
         </Dialog>
     );

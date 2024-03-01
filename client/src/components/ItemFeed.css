@@ -12,5 +12,5 @@
     margin: 10px;
     box-sizing: border-box;
     overflow-y: auto; /* enable vertical scrolling */
-    height: 100vh; /* adjust height as needed, or make it dynamic */
+
   }

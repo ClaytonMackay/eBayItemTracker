@@ -1,7 +1,17 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  fetchItems: (searchTerm) => ipcRenderer.send('fetch-items', searchTerm),
-  onFetchItemsResponse: (callback) => ipcRenderer.on('fetch-items-response', callback),
-  removeFetchItemsResponseListener: () => ipcRenderer.removeAllListeners('fetch-items-response')
+  openExternalLink: (url) => ipcRenderer.send('open-external-link', url),
+
+  getSavedSearches: () => ipcRenderer.sendSync('get-saved-searches'),
+
+  getEbayItems: () => ipcRenderer.sendSync('get-ebay-items'),
+
+  setEbayItemsSeen: (items) => ipcRenderer.sendSync('set-ebay-items-seen', items),
+
+  upsertSavedSearch: (savedSearch) => ipcRenderer.sendSync('upsert-saved-search', savedSearch),
+
+  runAllSearches: () => ipcRenderer.sendSync('run-all-searches'),
+
+  deleteSavedSearch: (savedSearch) => ipcRenderer.sendSync('delete-saved-search', savedSearch)
 });

@@ -1,19 +1,18 @@
+import React from 'react';
 import ItemCard from "./ItemCard";
 import "./ItemFeed.css";
-import useEbaySearch from "./UseEbaySearch";
+import { useAppContext } from '../state/AppContext';
 
-const ItemFeed = ({ activeSearchTerms }) => {
-	const { items, loading, error } = useEbaySearch(activeSearchTerms);
-
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error: {error.message}</div>;
-	return (
-		<div className="ebay-feed-container">
-			{items.map((item) => (
-				<ItemCard key={item.itemId} itemData={item} />
-			))}
-		</div>
-	);
+const ItemFeed = () => {
+    const { ebayItems, setEbayItemsSeen} = useAppContext();
+    
+    return (
+        <div className="ebay-feed-container">
+            {ebayItems.map((item) => (
+                <ItemCard key={item.id} item={item} setEbayItemsSeen={setEbayItemsSeen} />
+                ))}
+        </div>
+    );
 };
 
 export default ItemFeed;

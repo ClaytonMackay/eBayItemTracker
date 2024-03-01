@@ -1,5 +1,5 @@
 .SavedSearches {
-  width: 200px;
+  width: 270px;
   flex-shrink: 0;
   overflow-y: auto;
   padding: 10px;
@@ -7,6 +7,7 @@
   border: solid;
   align-items: center;
   height: 100vh; /* Set height to 100% of the viewport */
+  background-color: rgb(186, 186, 186);
 }
 
 .thickDivider {
@@ -20,12 +21,21 @@
   padding: 10px 0; /* Add some padding at the top and bottom */
 }
 
+.runAllSearchesButton {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  padding: 10px 0; /* Add some padding at the top and bottom */
+}
+
 .SavedSearch {
   border: solid; /* Style for individual list items */
   margin: 5px 0; /* Add some spacing between items */
   padding: 5px; /* Padding inside each list item */
   box-sizing: border-box; /* Include padding and border in width */
-  border-radius: 10%;
+  background-color: rgb(234, 234, 234);
+  flex-grow: 1; /* Allow text to take up available space */
+  margin-right: 10px; /* Add space between text and icons */
+  word-break: break-word; /* Ensure long words do not overflow */
 }
 .dialog-content {
   flex-direction: column;

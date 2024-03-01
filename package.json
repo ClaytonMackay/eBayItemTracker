@@ -19,13 +19,15 @@
     "@electron-forge/maker-zip": "^7.3.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
     "concurrently": "^8.2.2",
-    "electron": "^29.0.1",
+    "electron": "^23.3.13",
     "electron-is-dev": "^3.0.1",
+    "electron-rebuild": "^3.2.9",
     "wait-on": "^7.2.0"
   },
   "dependencies": {
+    "better-sqlite3": "^9.4.3",
     "dotenv": "^16.4.5",
     "electron-squirrel-startup": "^1.0.0",
-    "sqlite3": "^5.1.7"
+    "node-schedule": "^2.1.1"
   }
 }
